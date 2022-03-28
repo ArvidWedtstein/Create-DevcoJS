@@ -86,28 +86,7 @@
         })  
       });
       
-
-      // Listen DOM element update to set the controller property
-      Object.keys(bryter).forEach(function (bryterValue) {
-        var bryt = bryter[bryterValue];
-
-        bryt.elements.forEach(function (element) {
-          value = proxy[element.getAttribute('bryter')];
-
-          console.log(value)
-          for (var i = 0; i < element.children.length; i++) {
-            
-            // proxy[bryt.bryterValue] = element.children[i].getAttribute('sak');
-
-            console.log("Proxybryter", proxy[bryt.bryterValue], element.children[i].getAttribute('sak'))
-            if (proxy[bryt.bryterValue] == element.children[i].getAttribute('sak')) {
-              element.children[i].style.display = 'block';
-            } else {
-              element.children[i].style.display = 'none';
-            }
-          }
-        })  
-      });
+      // document.getElementsByTagName("norsk")
   
       // Fill proxy with ctrl properties
       // and return proxy, not the ctrl !
@@ -121,15 +100,89 @@
     }
   })();
     
-  /* User code */
-  function InputController () {
-    this.message = '2';
+/* User code */
+function InputController () {
+  this.message = '2';
+}
+
+var myInputController = norsk.controller('InputController', InputController);
+
+function onButtonClick () {
+  myInputController.message = '2';   
+}
+class Devcologo extends HTMLElement {
+  constructor() {
+    // Always call super first in constructor
+    super();
+
+    // Create a shadow root
+    var shadow = this.attachShadow({mode: 'open'});
+
+    // Create spans
+    var wrapper = document.createElement('span');
+    wrapper.setAttribute('class','wrapper');
+    var icon = document.createElement('span');
+    icon.setAttribute('class','icon');
+    icon.setAttribute('tabindex', 0);
+    var info = document.createElement('span');
+    info.setAttribute('class','info');
+
+    // Take attribute content and put it inside the info span
+    var text = this.getAttribute('text');
+    info.textContent = text;
+
+    // Insert icon
+    var imgUrl;
+    if(this.hasAttribute('img')) {
+      imgUrl = this.getAttribute('img');
+    } else {
+      imgUrl = 'devco-logo.png';
+    }
+    var img = document.createElement('img');
+    img.src = imgUrl;
+    icon.appendChild(img);
+
+    // Create some CSS to apply to the shadow dom
+    var style = document.createElement('style');
+
+    style.textContent = '.wrapper {' +
+                           'position: relative;' +
+                        '}' +
+
+                         '.info {' +
+                            'font-size: 0.8rem;' +
+                            'width: 200px;' +
+                            'display: inline-block;' +
+                            'border: 1px solid black;' +
+                            'padding: 10px;' +
+                            'background: white;' +
+                            'border-radius: 10px;' +
+                            'opacity: 0;' +
+                            'transition: 0.6s all;' +
+                            'position: absolute;' +
+                            'bottom: 20px;' +
+                            'left: 10px;' +
+                            'z-index: 3;' +
+                          '}' +
+
+                          'img {' +
+                            'width: 1.2rem' +
+                          '}' +
+
+                          '.icon:hover + .info, .icon:focus + .info {' +
+                            'opacity: 1;' +
+                          '}';
+
+    shadow.appendChild(style);
+    shadow.appendChild(wrapper);
+    wrapper.appendChild(icon);
+    wrapper.appendChild(info);
   }
-  
-  var myInputController = norsk.controller('InputController', InputController);
-  
-  function onButtonClick () {
-    myInputController.message = '2';   
-  }
-    
-  
+}
+
+// Define the new element
+customElements.define('devco-logo', Devcologo);
+// customElements.define('Spraak', Norsk, { extends: 'div' });
+// Create Custom HTML Tag
+
+
