@@ -233,9 +233,18 @@ class NorskBoks extends HTMLElement {
     super();
   }
 }
-
-// Define the new element
 customElements.define('n-boks', NorskBoks, {extends: 'div'});
+
+/**
+ * @param Lenke "lenk ditt stilark"
+ */
+class Lenke extends HTMLElement {
+  constructor() {
+    // Always call super first in constructor
+    super();
+  }
+}
+customElements.define('n-lenke', Lenke, {extends: 'a'});
 
 
 
