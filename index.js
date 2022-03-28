@@ -32,6 +32,48 @@
   
         bindings[boundValue].elements.push(element);
       });   
+
+      // Data
+      var data = {};
+      Array.prototype.slice.call(element.querySelectorAll('[data]'))
+        .map(function (element) {
+        var dataValue = element.getAttribute('data');
+          
+        if (!data[dataValue]) {
+          data[dataValue] = {
+            dataValue: dataValue,
+            elements: []
+          }
+        }
+  
+        data[dataValue].elements.push(element);
+        console.log(data[dataValue].dataValue)
+        const obj = JSON.parse(data[dataValue].dataValue)
+        console.log(obj)
+      });
+
+
+      
+
+
+      // on
+      var ved = {};
+      Array.prototype.slice.call(element.querySelectorAll('[ved]'))
+        .map(function (element) {
+        var dataValue = element.getAttribute('ved');
+          
+        if (!data[dataValue]) {
+          data[dataValue] = {
+            dataValue: dataValue,
+            elements: []
+          }
+        }
+  
+        data[dataValue].elements.push(element);
+        console.log(data[dataValue].dataValue)
+        const obj = JSON.parse(data[dataValue].dataValue)
+        console.log(obj)
+      });
       
       // bryter
       var bryter = {};
@@ -182,7 +224,18 @@ class Devcologo extends HTMLElement {
 
 // Define the new element
 customElements.define('devco-logo', Devcologo);
-// customElements.define('Spraak', Norsk, { extends: 'div' });
-// Create Custom HTML Tag
+
+
+
+class NorskBoks extends HTMLElement {
+  constructor() {
+    // Always call super first in constructor
+    super();
+  }
+}
+
+// Define the new element
+customElements.define('n-boks', NorskBoks, {extends: 'div'});
+
 
 
