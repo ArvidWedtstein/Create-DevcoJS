@@ -227,7 +227,7 @@ function InputController () {
 var Controller = norsk.controller(window.location.pathname.replace("/", ""), InputController);
 
 function onButtonClick () {
-
+console.log('button clicked')
 }
 
 
@@ -324,73 +324,123 @@ class Devcologo extends HTMLElement {
     wrapper.appendChild(info);
   }
 }
+
+
+
 class Hovercard extends HTMLElement {
   constructor() {
-    // Always call super first in constructor
     super();
 
-    // Create a shadow root
     var shadow = this.attachShadow({mode: 'open'});
 
-    // Create spans
-    createElement('span', {class: 'wrapper'}, [
-      createElement('span', {class: 'icon'}, [
-        createElement('img', {src: 'devco-logo.png', class: "icon", tabIndex: 0})
-      ]),
-      createElement('span', {class: 'info'}, [
-        createElement('span', {class: 'text'})
-      ])
-    ]);
-
-    // Take attribute content and put it inside the info span
     var text = this.getAttribute('text');
-    info.textContent = text;
 
-    // Insert icon
     var imgUrl;
     if(this.hasAttribute('img')) {
       imgUrl = this.getAttribute('img');
     } else {
       imgUrl = 'devco-logo.png';
     }
-    var img = document.createElement('img');
-    img.src = imgUrl;
-    icon.appendChild(img);
+
+
+    var body = createElement('n-boks', {class: "card"}, [
+      createElement('n-boks', {class: "face face1"}, [
+        createElement('n-boks', {class: "content"}, [
+          createElement('img', {src: imgUrl}),
+          createElement('h3', {textContent: text})
+        ])
+      ]),
+      createElement('n-boks', {class: "face face2"}, [
+        createElement('n-boks', {class: "content"}, [
+          createElement('p', {textContent: text})
+        ])
+      ])
+    ]);
 
     var style = document.createElement('style');
-
-    style.textContent = '.wrapper {' +
-                           'position: relative;' +
-                        '}' +
-
-                         '.info {' +
-                            'font-size: 0.8rem;' +
-                            'width: 200px;' +
-                            'display: inline-block;' +
-                            'border: 1px solid black;' +
-                            'padding: 10px;' +
-                            'background: white;' +
-                            'border-radius: 10px;' +
-                            'opacity: 0;' +
-                            'transition: 0.6s all;' +
-                            'position: absolute;' +
-                            'bottom: 20px;' +
-                            'left: 10px;' +
-                            'z-index: 3;' +
-                          '}' +
-
-                          'img {' +
-                            'width: 1.2rem' +
-                          '}' +
-
-                          '.icon:hover + .info, .icon:focus + .info {' +
-                            'opacity: 1;' +
-                          '}';
+   
+    style.textContent = `
+    .card{
+      position: relative;
+      cursor: pointer;
+  }
+  
+  .card .face{
+      width: 300px;
+      height: 200px;
+      transition: 0.5s;
+  }
+  
+  .card .face.face1{
+      position: relative;
+      background: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1;
+      transform: translateY(100px);
+  }
+  
+  .card:hover .face.face1{
+      background: #ff0057;
+      transform: translateY(0);
+  }
+  
+  .card .face.face1 .content{
+      opacity: 0.2;
+      transition: 0.5s;
+  }
+  
+  .card:hover .face.face1 .content{
+      opacity: 1;
+  }
+  .card .face.face1 .content img{
+      max-width: 100px;
+  }
+  .card .face.face1 .content h3{
+      margin: 10px 0 0;
+      padding: 0;
+      color: #fff;
+      text-align: center;
+      font-size: 1.5em;
+  }
+  .card .face.face2{
+      position: relative;
+      background: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      box-sizing: border-box;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+      transform: translateY(-100px);
+  }
+  .card:hover .face.face2{
+      transform: translateY(0);
+  }
+  
+  .card .face.face2 .content p{
+      margin: 0;
+      padding: 0;
+  }
+  
+  .card .face.face2 .content a{
+      margin: 15px 0 0;
+      display:  inline-block;
+      text-decoration: none;
+      font-weight: 900;
+      color: #333;
+      padding: 5px;
+      border: 1px solid #333;
+  }
+  .card .face.face2 .content a:hover{
+      background: #333;
+      color: #fff;
+  }
+    `;
 
     shadow.appendChild(style);
-    shadow.appendChild(wrapper);
-    wrapper.appendChild(icon);
-    wrapper.appendChild(info);
+    shadow.appendChild(body);
   }
 }
 
@@ -411,5 +461,4 @@ for (const [key, value] of Object.entries(Customelements)) {
   } else {
     customElements.define(key, value.klasse);
   }
-  
 }
