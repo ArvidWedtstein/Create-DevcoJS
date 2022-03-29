@@ -4,23 +4,29 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-
 </head>
 <body>
-  <div kontainer="InputController">
-    <n-lenke href="https://developers.google.com/web/fundamentals/web-components/examples/howto-tabs">ttt</n-lenke>
-    <input bind="message"/>
-    <button onclick="onButtonClick()">Click!</button>
-    <ul bryter="message">
-      <li sak="1">test1</li>
-      <li sak="2">test2</li>
-      <li sak="3">test3</li>
-    </ul>
-    <devco-logo data='{ "melding": "message" }'></devco-logo>
-    <n-boks>
-      <p>teeeest</p>
-    </n-boks>
+  <div kontainer>
+    <div data='{ bruh: true }'>
+      <input koble="message"/>
+      <div hvis="bruh" onclick="onButtonClick()">
+        <button>Click!</button>
+          
+      </div>
+      <ul bryter="message">
+        <li sak="1">test1</li>
+        <li sak="2">test2</li>
+        <li sak="3">test3</li>
+      </ul>
+      <devco-logo data='{ melding: "message" }'></devco-logo>
+      <n-boks>
+        <p data='{ gg: "bruh" }'>teeeest</p>
+      </n-boks>
+      <hover-card text="fffffff"></hover-card>
+    </div>
   </div>
+
 </body>
-<script src="index.js"></script>
+<script src="src/index.js"></script>
+<!-- <script src="src/data.js"></script> -->
 </html>

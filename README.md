@@ -4,7 +4,7 @@ HTML/JS Framework for adding the norwegian language to html
 # TODO
 
 - Switch Statement (Bryter) - Done
-- If Statement (Vis)
+- If Statement (Hvis) - DONE
 - Else Statement (Eller)
 - Bind - Done
 - for each loop (For hver)
@@ -19,3 +19,6 @@ HTML/JS Framework for adding the norwegian language to html
 `<div>` is replaced with `<n-boks>`
 
 `<img>` will be replaced with `<n-bilete>`
+
+
+https://codepen.io/Jhonierpc/pen/MWgBJpy
