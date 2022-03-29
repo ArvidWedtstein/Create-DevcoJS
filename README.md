@@ -13,6 +13,13 @@ HTML/JS Framework for adding the norwegian language to html
 - events (on click/ved trykk)
 - text attribute (tekst)
 
+- Set up some sort of initialization setup thingy
+- Set up some sort of event handling setup thing
+- Set up some sort of data handling setup thing
+- Add some sort of documentation
+- Add some sort of tests
+- Add some sort of examples
+
 
 # NYNORSK???
 
@@ -21,4 +28,3 @@ HTML/JS Framework for adding the norwegian language to html
 `<img>` will be replaced with `<n-bilete>`
 
 
-https://codepen.io/Jhonierpc/pen/MWgBJpy

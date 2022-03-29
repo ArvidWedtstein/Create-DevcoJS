@@ -236,7 +236,12 @@ function createElement(tag, attrs, children) {
   var element = document.createElement(tag);
   if (attrs) {
     Object.keys(attrs).forEach(function (key) {
-      element.setAttribute(key, attrs[key]);
+
+      if (key == "tekst") {
+        element.innerText = attrs[key];
+      } else {
+        element.setAttribute(key, attrs[key]);
+      }
     });
   }
   if (children) {
@@ -334,7 +339,7 @@ class Hovercard extends HTMLElement {
     var shadow = this.attachShadow({mode: 'open'});
 
     var text = this.getAttribute('text');
-
+    console.log("text", text)
     var imgUrl;
     if(this.hasAttribute('img')) {
       imgUrl = this.getAttribute('img');
@@ -342,17 +347,18 @@ class Hovercard extends HTMLElement {
       imgUrl = 'devco-logo.png';
     }
 
-
-    var body = createElement('n-boks', {class: "card"}, [
-      createElement('n-boks', {class: "face face1"}, [
-        createElement('n-boks', {class: "content"}, [
-          createElement('img', {src: imgUrl}),
-          createElement('h3', {textContent: text})
-        ])
-      ]),
-      createElement('n-boks', {class: "face face2"}, [
-        createElement('n-boks', {class: "content"}, [
-          createElement('p', {textContent: text})
+    var body = createElement('n-boks', {class: "container"}, [
+      createElement('n-boks', {class: "card"}, [
+        createElement('n-boks', {class: "face face1"}, [
+          createElement('n-boks', {class: "content"}, [
+            createElement('img', {src: imgUrl}),
+            createElement('h3', {tekst: text})
+          ])
+        ]),
+        createElement('n-boks', {class: "face face2"}, [
+          createElement('n-boks', {class: "content"}, [
+            createElement('p', {tekst: text})
+          ])
         ])
       ])
     ]);
@@ -360,18 +366,25 @@ class Hovercard extends HTMLElement {
     var style = document.createElement('style');
    
     style.textContent = `
-    .card{
+    .container{
+      position: relative;
+      display: flex;
+      justify-content: center;
+      margin: 0;
+  }
+  
+  .container .card{
       position: relative;
       cursor: pointer;
   }
   
-  .card .face{
+  .container .card .face{
       width: 300px;
       height: 200px;
       transition: 0.5s;
   }
   
-  .card .face.face1{
+  .container .card .face.face1{
       position: relative;
       background: #333;
       display: flex;
@@ -381,30 +394,33 @@ class Hovercard extends HTMLElement {
       transform: translateY(100px);
   }
   
-  .card:hover .face.face1{
+  .container .card:hover .face.face1{
       background: #ff0057;
       transform: translateY(0);
   }
   
-  .card .face.face1 .content{
+  .container .card .face.face1 .content{
       opacity: 0.2;
       transition: 0.5s;
   }
   
-  .card:hover .face.face1 .content{
+  .container .card:hover .face.face1 .content{
       opacity: 1;
   }
-  .card .face.face1 .content img{
+  
+  .container .card .face.face1 .content img{
       max-width: 100px;
   }
-  .card .face.face1 .content h3{
+  
+  .container .card .face.face1 .content h3{
       margin: 10px 0 0;
       padding: 0;
       color: #fff;
       text-align: center;
       font-size: 1.5em;
   }
-  .card .face.face2{
+  
+  .container .card .face.face2{
       position: relative;
       background: #fff;
       display: flex;
@@ -415,16 +431,17 @@ class Hovercard extends HTMLElement {
       box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
       transform: translateY(-100px);
   }
-  .card:hover .face.face2{
+  
+  .container .card:hover .face.face2{
       transform: translateY(0);
   }
   
-  .card .face.face2 .content p{
+  .container .card .face.face2 .content p{
       margin: 0;
       padding: 0;
   }
   
-  .card .face.face2 .content a{
+  .container .card .face.face2 .content a{
       margin: 15px 0 0;
       display:  inline-block;
       text-decoration: none;
@@ -433,7 +450,8 @@ class Hovercard extends HTMLElement {
       padding: 5px;
       border: 1px solid #333;
   }
-  .card .face.face2 .content a:hover{
+  
+  .container .card .face.face2 .content a:hover{
       background: #333;
       color: #fff;
   }
