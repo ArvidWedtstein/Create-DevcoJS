@@ -338,8 +338,8 @@ class Hovercard extends HTMLElement {
 
     var shadow = this.attachShadow({mode: 'open'});
 
-    var text = this.getAttribute('text');
-    var title = this.getAttribute('title');
+    var text = this.getAttribute('tekst');
+    var title = this.getAttribute('tittel');
 
     var imgUrl;
     if(this.hasAttribute('img')) {
