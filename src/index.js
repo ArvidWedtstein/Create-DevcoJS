@@ -339,7 +339,8 @@ class Hovercard extends HTMLElement {
     var shadow = this.attachShadow({mode: 'open'});
 
     var text = this.getAttribute('text');
-    console.log("text", text)
+    var title = this.getAttribute('title');
+
     var imgUrl;
     if(this.hasAttribute('img')) {
       imgUrl = this.getAttribute('img');
@@ -352,7 +353,7 @@ class Hovercard extends HTMLElement {
         createElement('n-boks', {class: "face face1"}, [
           createElement('n-boks', {class: "content"}, [
             createElement('img', {src: imgUrl}),
-            createElement('h3', {tekst: text})
+            createElement('h3', {tekst: title})
           ])
         ]),
         createElement('n-boks', {class: "face face2"}, [
