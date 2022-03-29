@@ -338,14 +338,9 @@ class Hovercard extends HTMLElement {
         createElement('img', {src: 'devco-logo.png', class: "icon", tabIndex: 0})
       ]),
       createElement('span', {class: 'info'}, [
-        createElement('span', {class: 'text', innerText: this.getAttribute('text')})
+        createElement('span', {class: 'text'})
       ])
     ]);
-    var icon = document.createElement('span');
-    icon.setAttribute('class','icon');
-    icon.setAttribute('tabindex', 0);
-    var info = document.createElement('span');
-    info.setAttribute('class','info');
 
     // Take attribute content and put it inside the info span
     var text = this.getAttribute('text');
