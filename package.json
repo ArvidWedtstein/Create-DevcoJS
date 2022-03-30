@@ -1,24 +1,26 @@
 {
-  "name": "norskframework",
+  "name": "devcojs",
   "version": "1.0.0",
   "description": "HTML/JS Framework for adding the norwegian language to html",
-  "main": "index.js",
+  "main": "src/devco.js",
+  "files": [
+    "src/index.js"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "node src/index.js"
   },
-  "type": "module",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ArvidWedtstein/NorskFramework.git"
+    "url": "git+https://github.com/ArvidWedtstein/DevcoJS.git"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ArvidWedtstein/NorskFramework/issues"
+    "url": "https://github.com/ArvidWedtstein/DevcoJS/issues"
   },
-  "homepage": "https://github.com/ArvidWedtstein/NorskFramework#readme",
+  "homepage": "https://github.com/ArvidWedtstein/DevcoJS#readme",
   "dependencies": {
     "nodemon": "^2.0.15"
   }
