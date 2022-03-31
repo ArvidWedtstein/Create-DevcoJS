@@ -62,7 +62,6 @@ module.exports = {
       type: 'remove',
       files: 'package.js'
     })
-    console.log(actions)
     return actions
   },
   async completed () {
