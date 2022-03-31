@@ -1,6 +1,6 @@
 {
   "name": "create-devcojs",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "HTML/JS Framework for adding the norwegian language to html",
   "main": "src/devco.js",
   "bin": "lib/saofile.js",
@@ -29,7 +29,6 @@
     "chalk": "^4.1.2",
     "chalk-animation": "^1.6.0",
     "envinfo": "^7.8.1",
-    "inquirer": "^8.2.2",
     "nodemon": "^2.0.15",
     "sao": "^1.7.1"
   }

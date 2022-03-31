@@ -1,11 +1,10 @@
 {
+  "name": "the_black_knight",
     "scripts": {
-
+        "start": "node index.js"
     },
     "dependencies": {
-
-    },
-    "devDependencies": {
-
+      "dotenv": "^8.2.0",
+      "devcojs": "^1.0.1"
     }
   }
