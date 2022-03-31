@@ -16,11 +16,8 @@ module.exports = {
     const pm = this.answers.pm === 'yarn' ? 'yarn' : 'npm'
     const pmRun = this.answers.pm === 'yarn' ? 'yarn' : 'npm run'
     const { cliOptions = {} } = this.sao.opts
-    const edge = cliOptions.edge ? '-edge' : ''
 
-    console.log(pm, pmRun)
     return {
-      edge,
       pm,
       pmRun
     }

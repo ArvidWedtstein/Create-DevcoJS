@@ -1,5 +1,4 @@
 {
-  "name": "the_black_knight",
     "scripts": {
         "start": "node index.js"
     },
