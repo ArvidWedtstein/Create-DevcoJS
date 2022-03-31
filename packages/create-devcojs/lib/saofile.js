@@ -2,7 +2,7 @@ const { dirname, join, relative } = require('path')
 
 const fs = require('fs')
 const pkg = require('./package')
-const cnaTemplateDir = join(dirname(require.resolve('../packages/cna-template/package.json')))
+const cnaTemplateDir = join(dirname(require.resolve('../../cna-template/package.json')))
 const templateDir = join(cnaTemplateDir, 'template')
 
 const addExecutable = filename => new Promise(
@@ -35,6 +35,15 @@ module.exports = {
       templateDir: join(templateDir, 'devco')
     }]
 
+    actions.push({
+      type: 'move',
+      patterns: {
+        gitignore: '.gitignore',
+        '_package.json': 'package.json',
+        '_.prettierignore': '.prettierignore',
+        '_.prettierrc': '.prettierrc'
+      }
+    })
 
     const generator = this
     actions.push({

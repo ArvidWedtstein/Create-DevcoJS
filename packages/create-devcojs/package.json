@@ -1,0 +1,39 @@
+{
+    "name": "create-devcojs",
+    "version": "1.1.3",
+    "description": "HTML/JS Framework for adding the norwegian language to html",
+    "bin": "lib/cli.js",
+    "files": [
+      "lib"
+    ],
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/ArvidWedtstein/DevcoJS.git"
+    },
+    "keywords": [],
+    "authors": [
+      "Arvid Wedtstein <arvidw0310@gmail.com>",
+      "DevcoJS <devcocompany@gmail.com>"
+    ],
+    "scripts": {
+      "test": "ava ../test/test.js",
+      "install": "node lib/cli.js"
+    },
+    "license": "MIT",
+    "bugs": {
+      "url": "https://github.com/ArvidWedtstein/DevcoJS/issues"
+    },
+    "homepage": "https://github.com/ArvidWedtstein/DevcoJS#readme",
+    "dependencies": {
+      "cac": "^6.7.12",
+      "chalk": "^4.1.2",
+      "chalk-animation": "^1.6.0",
+      "envinfo": "^7.8.1",
+      "nodemon": "^2.0.15",
+      "sao": "^1.7.1"
+    },
+    "engines": {
+        "node": ">=v12.22.10"
+    }
+  }
+  

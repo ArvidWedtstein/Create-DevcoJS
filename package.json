@@ -1,11 +1,10 @@
 {
   "name": "create-devcojs",
-  "version": "1.1.1",
+  "version": "1.2.2",
   "description": "HTML/JS Framework for adding the norwegian language to html",
-  "main": "src/devco.js",
-  "bin": "lib/saofile.js",
-  "files": [
-    "lib"
+  "bin": "packages/create-devcojs/lib/cli.js",
+  "workspaces": [
+    "packages/*"
   ],
   "repository": {
     "type": "git",
@@ -16,9 +15,6 @@
     "Arvid Wedtstein <arvidw0310@gmail.com>",
     "DevcoJS <devcocompany@gmail.com>"
   ],
-  "scripts": {
-    "test": "ava ../test/test.js"
-  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/ArvidWedtstein/DevcoJS/issues"

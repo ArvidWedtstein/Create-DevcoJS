@@ -17,8 +17,8 @@ module.exports = {
       return {}
     }
     const prefix = name === 'devco' ? 'devco' : `frameworks/${name}`
-    const pkg = this.requireJSON(`../packages/cna-template/template/${prefix}/package.json`)
-    const pkgHandler = this.requireFile(`../packages/cna-template/template/${prefix}/package.js`)
+    const pkg = this.requireJSON(`../../cna-template/template/${prefix}/package.json`)
+    const pkgHandler = this.requireFile(`../../cna-template/template/${prefix}/package.js`)
     return pkgHandler.apply ? pkgHandler.apply(pkg, generator) : pkg
   },
   load (generator) {
