@@ -1,0 +1,9 @@
+{
+    "name": "cna-template",
+    "version": "1.0.1",
+    "description": "Templates for Create Devcojs App.",
+    "files": [
+      "template"
+    ],
+    "license": "MIT"
+  }

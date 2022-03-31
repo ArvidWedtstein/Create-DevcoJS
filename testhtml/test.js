@@ -2,7 +2,7 @@
 
 
 
-const Devco = require("./src/devco");
+const Devco = require("../src/devco");
 
 let instance = new Devco();
 
