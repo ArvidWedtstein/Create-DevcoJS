@@ -28,3 +28,4 @@ HTML/JS Framework for adding the norwegian language to html
 `<img>` will be replaced with `<n-bilete>`
 
 
+https://sao.vercel.app/guide/creating-generators.html#folder-structure
