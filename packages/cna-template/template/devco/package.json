@@ -4,6 +4,6 @@
     },
     "dependencies": {
       "dotenv": "^8.2.0",
-      "devcojs": "^1.0.1"
+      "@arvidwedtstein/devcojs": "^1.0.1"
     }
   }
