@@ -25,6 +25,7 @@
     "chalk": "^4.1.2",
     "chalk-animation": "^1.6.0",
     "envinfo": "^7.8.1",
+    "gradient-string": "^1.2.0",
     "nodemon": "^2.0.15",
     "sao": "^1.7.1"
   }

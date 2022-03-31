@@ -23,9 +23,6 @@ module.exports = {
     }
   },
   actions () {
-
-    
-
     const actions = [{
       type: 'add',
       files: '**',
@@ -79,8 +76,7 @@ module.exports = {
     const cdMsg = isNewFolder ? chalk`\t{cyan cd ${relativeOutFolder}}\n` : ''
     const pmRun = this.answers.pm === 'yarn' ? 'yarn' : 'npm run'
 
-
-    console.log(chalk`\n🎉  {bold Successfully created project} {cyan ${this.answers.name}}\n`)
+    console.log(chalk`\n🎉✓  {bold Successfully created project} {cyan ${this.answers.name}}\n`)
 
     // console.log(chalk`  {bold To get started:}\n`)
     // console.log(chalk`${cdMsg}\t{cyan ${pmRun} dev}\n`)

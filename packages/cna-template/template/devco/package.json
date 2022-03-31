@@ -1,6 +1,5 @@
 {
   "scripts": {
-    "babel": "babel src/index.js -d dist",
     "dev": "webpack && vite dist",
     "build": "webpack",
     "preview": "vite preview"

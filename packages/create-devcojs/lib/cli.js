@@ -6,8 +6,8 @@ const cac = require('cac')
 const chalk = require('chalk');
 const envinfo = require('envinfo')
 const { version } = require('../package.json');
-const chalkAnimation = require('chalk-animation')
-
+const gradient = require('gradient-string')
+const box = require('./box')
 const generator = path.resolve(__dirname, './')
 
 const cli = cac('create-devcojs');
@@ -28,40 +28,33 @@ const showEnvInfo = async () => {
 const run = async () => {
   cli
     .command('[out-dir]', 'Generate in a custom directory or current directory')
-    .option('-e, --edge', 'To install `nuxt-edge` instead of `nuxt`')
     .option('-i, --info', 'Print out debugging information relating to the local environment')
-    .option('--answers <json>', 'Skip all the prompts and use the provided answers')
     .option('--verbose', 'Show debug logs')
     .option('--overwrite-dir', 'Overwrite the target directory')
     .action((outDir = '.', cliOptions) => {
-      console.log(cliOptions)
       if (cliOptions.info) {
         return showEnvInfo()
       }
+
+      // Beer Gradient: [{color: "#e3af09", pos: 0}, {color: "#fbc80b", pos: 0.3}]
       console.log()
-      console.log(chalk`{cyan create-devcojs-app v${version}}`)
-      
-      
+      console.log(gradient(["#5433FF", "#20BDFF", "#A5FECB"]).multiline(box(4, `create-devcojs-app v${version}`).join('\n')))
+
 
       const { answers, overwriteDir, verbose } = cliOptions
 
       const logLevel = verbose ? 4 : 2
 
-      console.log("generator", generator)
-      console.log("outdir", outDir)
-      console.log("loglevel", logLevel)
-      console.log("answers", answers)
-      console.log("clioptions", cliOptions)
+      if (fs.existsSync(outDir) && fs.readdirSync(outDir).length && !overwriteDir) {
+        const baseDir = outDir === '.' ? path.basename(process.cwd()) : outDir
+        return console.error(gradient(["#F00000", "#DC281E"]).multiline(box(4, `Could not create project ${baseDir} because the directory is not empty.`).join('\n'), {interpolation: 'rgb'}))
+      }
 
-      // if (fs.existsSync(outDir) && fs.readdirSync(outDir).length && !overwriteDir) {
-      //   const baseDir = outDir === '.' ? path.basename(process.cwd()) : outDir
-      //   return console.error(chalk.red(
-      //     `Could not create project in ${chalk.bold(baseDir)} because the directory is not empty.`))
-      // }
+      var genString = new String(`✨  Generating Devco.js project in ${outDir}`)
+      console.log(genString)
 
-      console.log(chalk`✨  Generating Devco.js project in {cyan ${outDir}}`)
-
-      
+      //✓
+      //❖
 
       
       sao({ generator, outDir, logLevel, answers, cliOptions })
@@ -72,28 +65,6 @@ const run = async () => {
         })
     })
 
-
-  
-  // prompts.forEach(async (prompt) => {
-  //     const { name, message, type, choices, default: defaultValue } = prompt
-  //     const answer = await inquirer.prompt([{
-  //         name,
-  //         message,
-  //         type,
-  //         choices,
-  //         default: defaultValue
-  //     }])
-  //     console.log(chalk.green(`${name}: ${answer[name]}`))
-  // })
-  // const answers = await inquirer.prompt({
-  //     name: "vcs",
-  //     type: "list",
-  //     message: "Version control system:",
-  //     choices: [
-  //         { name: 'Git', value: 'git' },
-  //         { name: 'None', value: 'none' }
-  //     ]
-  // })
 
   cli.help()
 
@@ -106,12 +77,9 @@ try {
   run()
 } catch (err) {
   if (err.name === 'CACError' && err.message.startsWith('Unknown option')) {
-    console.error()
-    console.error(chalk.red(err.message))
-    console.error()
+    console.error(box(4, err.message, "red").join('\n'))
     cli.outputHelp()
   } else {
-    console.error()
-    console.error(err)
+    console.error(box(4, err, "red"))
   }
 }

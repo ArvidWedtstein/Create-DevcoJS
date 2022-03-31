@@ -20,10 +20,3 @@ HTML/JS Framework for adding the norwegian language to html
 - Add some sort of tests
 - Add some sort of examples
 
-
-# NYNORSK???
-
-`<div>` is replaced with `<n-boks>`
-
-`<img>` will be replaced with `<n-bilete>`
-
