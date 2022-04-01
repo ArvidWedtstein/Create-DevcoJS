@@ -53,9 +53,6 @@ const run = async () => {
       var genString = new String(`✨  Generating Devco.js project in ${outDir}`)
       console.log(genString)
 
-      //✓
-      //❖
-
       
       sao({ generator, outDir, logLevel, answers, cliOptions })
         .run()
