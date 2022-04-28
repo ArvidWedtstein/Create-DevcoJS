@@ -1,6 +1,6 @@
 {
   "name": "create-devcojs",
-  "version": "1.2.6",
+  "version": "1.2.7",
   "description": "HTML/JS Framework for adding the norwegian language to html",
   "bin": "packages/create-devcojs/lib/cli.js",
   "workspaces": [
