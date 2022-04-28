@@ -76,14 +76,7 @@ module.exports = {
     const cdMsg = isNewFolder ? chalk`\t{cyan cd ${relativeOutFolder}}\n` : ''
     const pmRun = this.answers.pm === 'yarn' ? 'yarn' : 'npm run'
 
-    console.log(chalk`\n🎉✓  {bold Successfully created project} {cyan ${this.answers.name}}\n`)
-
-    // console.log(chalk`  {bold To get started:}\n`)
-    // console.log(chalk`${cdMsg}\t{cyan ${pmRun} dev}\n`)
-
-    // console.log(chalk`  {bold To build & start for production:}\n`)
-    // console.log(chalk`${cdMsg}\t{cyan ${pmRun} build}`)
-    // console.log(chalk`\t{cyan ${pmRun} start}\n`)
+    console.log(chalk`\n🎉✓  {bold Prosjektet blei opprettet} {cyan ${this.answers.name}}\n`)
 
   }
 }

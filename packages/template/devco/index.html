@@ -1,0 +1,53 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      background: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: consolas;
+    }
+  </style>
+</head>
+<body>
+  <div id="app" kontainer>
+    <div>
+      <h1>Brytar uttalelse</h1>
+      <input id="input" koble="message" />
+      <ul brytar="message">
+        <li tilfelle="1">Dette kommer opp når du input feltet inneholder "1"</li>
+        <li tilfelle="2">Dette kommer opp når du input feltet inneholder "2"</li>
+        <li tilfelle="3">Dette kommer opp når du input feltet inneholder "3"</li>
+      </ul>
+    </div>
+    <div>
+      <h1>Tekst uttalelse</h1>
+      <p hypertekstoppmerknadspråk="test"></p>
+    </div>
+    <div>
+      <h1>Dersom uttalelse</h1>
+      <p dersom="hvis">Hvis variabelen er satt til sann!</p>
+    </div>
+  </div>
+  <script src="./src/index.js"></script>
+  <script src="https://unpkg.com/@arvidwedtstein/devcojs@1.x.x/src/devco.js"></script>
+  <script>
+     var devco = new Devco({
+      el: "#app",
+      data: {
+        test: "Dette er ein test",
+        hvis: true
+      }
+    })
+  </script>
+</body>
+
+</html>

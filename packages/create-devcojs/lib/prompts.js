@@ -2,12 +2,12 @@ const gradient = require('gradient-string')
 module.exports = [
     {
       name: 'name',
-      message: 'Project name:',
+      message: 'Prosjektnavn:',
       default: '{outFolder}'
     },
     {
       name: 'language',
-      message: 'Programming language:',
+      message: 'Programmeringsspråk:',
       choices: [
         { name: 'JavaScript', value: 'js' },
         { name: 'TypeScript', value: 'ts' }
@@ -17,7 +17,7 @@ module.exports = [
     },
     {
       name: 'pm',
-      message: gradient.morning('Package manager:'),
+      message: gradient.morning('Velg Pakkeansvarlig:'),
       choices: [
         { name: 'Npm', value: 'npm' },
         { name: 'Yarn', value: 'yarn' }
@@ -27,7 +27,7 @@ module.exports = [
     },
     {
       name: 'style',
-      message: gradient.morning('Style??:'),
+      message: gradient.morning('Stil??:'),
       choices: [
         { name: 'CSS', value: 'css' },
         { name: 'SCSS', value: 'scss' },
@@ -40,7 +40,7 @@ module.exports = [
     {
       when: ({ style }) => style == 'tailwind',
       name: 'areyousure',
-      message: gradient.morning('Are you sure you want to use Tailwind??:'),
+      message: gradient.morning('Er du sikker på at du vil bruke Tailwind??:'),
       choices: [
         { name: 'Yes', value: 'yes' },
         { name: 'No', value: 'no' }
@@ -50,7 +50,7 @@ module.exports = [
     },
     {
       name: 'vcs',
-      message: 'Version control system:',
+      message: 'Versjonskontrollsystem:',
       type: 'list',
       choices: [
         { name: 'Git', value: 'git' },
