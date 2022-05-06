@@ -46,7 +46,7 @@ const run = async () => {
       }
 
       var genString = new String(`✨ Genererer Devco.js prosjekt i ${outDir}`)
-
+      console.log(genString)
 
       
       sao({ generator, outDir, logLevel, answers, cliOptions })
